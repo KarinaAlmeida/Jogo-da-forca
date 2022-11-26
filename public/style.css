@@ -1,60 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* app */
+
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-.estado-inicial {
-    display: flex;
-    justify-content: space-around;
-    height: 400px;
+.App {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.imagem-forca {
-    width: 300px;
-    height: 350px;
+
+.jogo {
+  margin-top: 2%;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.imagem-forca img {
-    width: 400px;
-    height: 466px;
-    margin: 20px 400px 300px 25px;
+.jogo img {
+  width: 35%;
 }
 
-.button {
-    width: 300px;
-}
-.button div{
-    font-size:30px;
-    margin-top: 150px;
+.jogo input {
+  width: 200px;
+  height: 60px;
+  background: #27ae60;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+  margin-right: 30px;
+  margin-top: 35px;
 }
 
-.button button {
-    width: 150px;
-    height: 50px;
-    margin-top: 50px;
-    background-color: #27AE60;
-    border-radius: 8px;
-    color: #FFFFFF;
-    font-size: 15px;
-    font-weight: 500;
-} 
+.palavra div  {
+  margin-top: 30%;
+  font-family: "Noto Sans", sans-serif;
+  font-style: bold;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 68px;
+  letter-spacing: 10px;
+}
+
+.palavra {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.derrota {
+  color: #FF0000;
+}
+
+.vitoria {
+  color: green;
+}
+
+/* -------------------------------- Alfabeto */
 
 
 .alfabeto {
     width: 650px;
-    margin-top: 130px;
+    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
 
 }
 
-.alfabeto button { 
+.Disabled { 
     width: 40px;
     height: 40px;
-    color: #7AA7C7;
+    color: #798A9F;
     border: 1px solid #7AA7C7;
-    background-color: #E1ECF4;
-    /* background-color: #9FAAB5;
-    border: 1px solid #7AA7C7; */
+    background-color: #9FAAB5;
+
+
     border-radius: 3px;   
     font-size: 16px;
     font-weight: 700;
@@ -66,42 +92,56 @@ body {
 
 } 
 
-.alfabeto button:disabled{
-    background-color: #9FAAB5;
+.Enabled{
     /* border: 1px solid #7AA7C7; */
-    color: #798A9F;}
+    color: #7AA7C7;
+    background-color: #E1ECF4;
 
+}
+
+
+/* -------------------------------- Chute */
 
 .chute {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
 }
+
 .chute h1 {
-    font-size: 20px;
-    font-weight: 400;
-    padding-right: 10px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
 }
 
-.chute input {
-    background: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 3px;
-    width: 353px;
-    height: 40px;
+.chute input[type="text"] {
+  width: 353px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  margin: 0 15px;
 }
 
-.chute button {
-    width: 100px;
-    height: 40px;
-    color: #3C76A1;
-    background: #E1ECF4;
-    border: 1px solid #7AA7C7;
-    border-radius: 3px;
-    font-weight: 700;
-    font-size: 16px;
-    margin-left: 10px;
+
+.chute input[value="Chutar"] {
+  width: 100px;
+  height: 40px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  background-color: #e1ecf4;
+  border: 1px solid #7aa7c7;
+  border-radius: 3px;
+  display: flex;
+  padding-left: 23px;
+  align-items: center;
+  text-align: center;
+  color: #3c76a1;
 }
