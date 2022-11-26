@@ -1,18 +1,15 @@
+import React, { useState } from "react"
+// import palavras from "./palavras"
 
-
-export default function Jogo ({inicio, palavra, jogar, palavraEscondida, erro, fimDeJogoStatus}) {
-
+export default function Jogo ({inicia, palavrinha}) {
     return (
-        <div className="jogo">
-            <img data-test="game-image" src={`./assets/forca${erro}.png`} />
-            <div className="palavra">
-                <input data-test="choose-word" onClick={jogar}
-                    type="button" value={"Escolher Palavra"} />
-                <div
-                    className={fimDeJogoStatus}
-                    data-test="word"
-                    data-answer={palavra}
-                >{palavraEscondida.join('')}</div>
+        <div class="estado-inicial">
+            <div class="imagem-forca">
+                <img src="./assets/forca0.png" />
+            </div>
+            <div class="button">
+                <button onClick={inicia} >Escolher palavra</button>
+                <div class="palavrinha">{palavrinha}</div>
             </div>
         </div>
     )
