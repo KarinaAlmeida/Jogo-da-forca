@@ -27,3 +27,5 @@ const palavras = [
 
 
 export default palavras
+
+//palavras não esta sendo encontrada 
