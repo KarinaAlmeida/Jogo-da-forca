@@ -1,7 +1,7 @@
 import Jogo from "./Jogo" 
 import Letras from "./Letras"
 import Chute from "./Chute"
-import palavras from "./Palavras"
+import palavras from "./palavras"
 import React, { useState } from "react"
 import forca0 from "./assets/forca0.png";
 import forca1 from "./assets/forca1.png";
