@@ -28,4 +28,4 @@ const palavras = [
 
 export default palavras
 
-//palavras não esta sendo encontrada 
+//palavras não esta sendo encontrada no deploy
