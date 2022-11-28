@@ -1,4 +1,4 @@
-/* body {
+body {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -111,4 +111,12 @@
   font-weight: 700;
   font-size: 16px;
   margin-left: 10px;
-} */
+}
+
+.vitoria{
+  color:green;
+}
+
+.derrota{
+  color:red;
+}

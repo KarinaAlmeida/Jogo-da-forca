@@ -3,7 +3,6 @@ import Letras from "./Letras"
 import Chute from "./Chute"
 import palavras from "./Palavras"
 import React, { useState } from "react"
-import styled from "styled-components";
 import forca0 from "./assets/forca0.png";
 import forca1 from "./assets/forca1.png";
 import forca2 from "./assets/forca2.png";
@@ -17,25 +16,32 @@ const imagens = [forca0,forca1,forca2,forca3,forca4,forca5,forca6];
 
 
 export default function App() {
-    const [disableInput,setDisableInput] = useState(true);
-    const [erros,setErros] = useState(0);
+    const [disableInput,setDisableInput] = useState(true); //começa desabilitado e habilita ao clicar em escolher palavra
+    const [disableBotao,setDisableBotao] = useState(true);
+
+
     const [palavraSelecionada,setPalavraSelecionada] = useState([]);
     const [palavraDoTurno,setPalavraDoTurno] = useState([]);
     const [palavraJogo,setPalavraJogo] = useState([]);
-    const [letrasSelecionadas,setLetrasSelecionadas] = useState(alfabeto);
-    const [chutei,setChutei] = useState();
-    const [status,setStatus] = useState("black"); /*diz se acertou ou perdeu e troca a cor*/
-    const [disableBotao,setDisableBotao] = useState(true);
-    const [palavraNormal,setPalavraNormal] = useState("");
 
+
+    const [erros,setErros] = useState(0); //começam zerados e a cada comparação e adição colocam uma imagem a mais na tela
+    
+    const [letrasSelecionadas,setLetrasSelecionadas] = useState(alfabeto);// letra clicada no alfabeto
+
+
+    const [chutei,setChutei] = useState(); //
+    const [status,setStatus] = useState(); //diz se acertou ou perdeu e troca a cor
+    
+    const [palavraNormal,setPalavraNormal] = useState(""); //habilita caracteres especiais
+
+
+    //FUNÇÕES
 
     function inicio(){
       setDisableInput(false);
       setLetrasSelecionadas([]);
-
       selecaoDaPalavra(); /*função que escolhe a palavra */
-
-      setStatus("black");
       setErros(0);
       setDisableBotao(false);
   }
@@ -48,6 +54,7 @@ export default function App() {
 
     setPalavraDoTurno(palavra);
     setPalavraSelecionada(palavraSorteada)
+    console.log(palavraSelecionada);
     let espacinhos= [];
     palavraSorteada.forEach((l)=>espacinhos.push("_ "));
     setPalavraJogo(espacinhos);
@@ -76,7 +83,7 @@ export default function App() {
     });
     setPalavraJogo (palavrinha);
     if(!palavrinha.includes("_ ")){
-      setStatus("green");
+      setStatus("vitoria");
       Acabou();
     }
 
@@ -86,7 +93,7 @@ export default function App() {
     const errou= erros+1
     setErros(errou);
     if(erros+1===6){
-      setStatus("red");
+      setStatus("derrota");
       Acabou();
     }
    }
@@ -112,24 +119,12 @@ export default function App() {
 
 
 
-
-
+//render
   return (
-    <Container>
+    <div className="App">
       <Jogo imagens={imagens} inicio={inicio} erros={erros} status={status} palavraJogo={palavraJogo} palavraDoTurno={palavraDoTurno}/>
       <Letras alfabeto={alfabeto} letrasSelecionadas={letrasSelecionadas} cliquei={cliquei} />
       <Chute disableInput={disableInput} disableBotao={disableBotao} chutei={chutei} setChutei={setChutei} chute={chute} />
-    </Container>
+    </div>
   );
 }
-
-const Container=styled.div`
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    font-family: 'Roboto', sans-serif;
-`
