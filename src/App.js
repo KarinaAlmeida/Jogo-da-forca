@@ -31,7 +31,7 @@ export default function App() {
 
 
     const [chutei,setChutei] = useState(); //
-    const [status,setStatus] = useState(); //diz se acertou ou perdeu e troca a cor
+    const [status,setStatus] = useState("emjogo"); //diz se acertou ou perdeu e troca a cor
     
     const [palavraNormal,setPalavraNormal] = useState(""); //habilita caracteres especiais
 
@@ -44,6 +44,7 @@ export default function App() {
       selecaoDaPalavra(); /*função que escolhe a palavra */
       setErros(0);
       setDisableBotao(false);
+      setStatus("emjogo")
   }
 
 
@@ -109,11 +110,14 @@ export default function App() {
     function chute(){
       let palavraInput=palavraSelecionada.join("");
       if (chutei===palavraInput || chutei===palavraNormal){
-        setStatus("green");
+        setStatus("vitoria");
+        setPalavraJogo (palavraDoTurno);
       }else{
-        setStatus("red");
+        setStatus("derrota");
         setErros(6);
+        setPalavraJogo (palavraDoTurno); 
       }
+      Acabou()
     
     }
 
@@ -123,8 +127,8 @@ export default function App() {
   return (
     <div className="App">
       <Jogo imagens={imagens} inicio={inicio} erros={erros} status={status} palavraJogo={palavraJogo} palavraDoTurno={palavraDoTurno}/>
-      <Letras alfabeto={alfabeto} letrasSelecionadas={letrasSelecionadas} cliquei={cliquei} />
-      <Chute disableInput={disableInput} disableBotao={disableBotao} chutei={chutei} setChutei={setChutei} chute={chute} />
+      <Letras alfabeto={alfabeto} letrasSelecionadas={letrasSelecionadas} cliquei={cliquei}/>
+      <Chute disableInput={disableInput} disableBotao={disableBotao} chutei={chutei} setChutei={setChutei} chute={chute} status={status} />
     </div>
   );
 }
