@@ -5,11 +5,11 @@ export default function Jogo (props) {
 
     return (
         <div className="estado-inicial">
-          < div className="imagem-forca">
+          <div className="imagem-forca">
                 <img src={imagens[erros]} data-test="game-image"/>
           </div> 
           <div className="button">
-                <button onClick={inicio} >Escolher palavra</button>
+                <button  data-test="choose-word" onClick={inicio} >Escolher palavra</button>
                 <div class={`palavrinha ${status}`} data-test="word" data-answer={palavraDoTurno}
                 
                 > {palavraJogo}</div>
